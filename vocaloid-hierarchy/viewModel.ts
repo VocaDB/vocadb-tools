@@ -35,13 +35,18 @@ namespace mapper {
 			_.forEach(this.artists, a => {
 
 				if (a.baseVoicebank) {
-					const base = dict[a.baseVoicebank.id];
-					if (base) {
-						if (!base.children)
-							base.children = [a];
-						else
-							base.children.push(a);						
+					var base = dict[a.baseVoicebank.id];
+					if (!base) {
+						this.artists.push(a.baseVoicebank);
+						base = a.baseVoicebank;
+						dict[base.id] = base;
 					}
+
+					if (!base.children)
+						base.children = [a];
+					else
+						base.children.push(a);	
+										
 				}
 
 			});
