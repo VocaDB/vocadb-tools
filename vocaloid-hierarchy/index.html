@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Vocaloid artist hierarchy</title>
+	<title>Vocaloid voicebank hierarchy</title>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 	<style>
 
@@ -13,12 +13,20 @@
 		<div class="row">
 			<div class="col-sm-12">
 				<h1>
-					Vocaloid artist hierarchy
+					Vocaloid voicebank hierarchy
 				</h1>
 				
+				<ul data-bind="template: { name: 'artistTemplate', foreach: artistsWithChildren }"></ul>
 			</div>
 		</div>		
 	</div>
+
+	<script type="text/html" id="artistTemplate">
+		<li>
+			<a data-bind="text: name, attr: { href: 'http://vocadb.net/Ar/' + id }"></a>
+			<ul data-bind="template: { name: 'artistTemplate', foreach: $data.children }"></ul>
+		</li>
+	</script>
 
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
