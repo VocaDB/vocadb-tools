@@ -1,0 +1,6 @@
+packages/
+*.js
+*.suo
+*.user
+*.vspx
+.vs/config/applicationhost.config
