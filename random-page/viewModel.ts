@@ -6,8 +6,6 @@ namespace mapper {
 
 		public showRandom = () => {
 
-			this.clicked(true);
-
 			var entryTypes = [
 				{ api: 'artists', url: 'Ar' },
 				{ api: 'albums', url: 'Al' },
@@ -19,11 +17,17 @@ namespace mapper {
 
 		}
 
+		public showArtist = () => this.goToEntry('artists', 'Ar');
+		public showAlbum = () => this.goToEntry('albums', 'Al');
+		public showSong = () => this.goToEntry('songs', 'S');
+
 		private random = (max: number) => {
 			return Math.floor(Math.random() * max);
 		}
 
 		private goToEntry = (api: string, urlPrefix: string) => {
+
+			this.clicked(true);
 
 			$.getJSON("https://vocadb.net/api/" + api + "?maxResults=1&getTotalCount=true", result => {
 				const index = this.random(result.totalCount);
