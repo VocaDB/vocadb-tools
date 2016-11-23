@@ -1,0 +1,1 @@
+Show a random page on VocaDB
