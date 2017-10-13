@@ -4,3 +4,5 @@ packages/
 *.user
 *.vspx
 .vs/config/applicationhost.config
+random-page/.vs/slnx.sqlite
+random-page/.vs/config/applicationhost.config
